@@ -1,4 +1,5 @@
 const express = require('express')
+const cors = require('cors')
 const mongoose = require('mongoose')
 const controller = require('./controllers/posts.controller')
 
@@ -10,6 +11,7 @@ mongoose
   .then(() => {
     const app = express()
 
+    app.use(cors())
     app.use(express.json())
     app.use('/', controller)
 
