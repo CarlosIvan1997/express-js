@@ -3,6 +3,10 @@ const service = require('../services/posts.service')
 
 const controller = express.Router()
 
+controller.get('/', async (req, res) => {
+  res.send('Hello there, this is an express app.')
+})
+
 controller.get('/posts', async (req, res) => {
   const posts = await service.find()
   res.send(posts)
